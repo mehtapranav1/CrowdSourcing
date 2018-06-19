@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <title>Crowd Sourcing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><style>
+body {font-family: "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item{padding:16px;font-weight:bold}
+</style>
+<body>
+
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" style="z-index:3;width:250px;" id="mySidebar">
+          <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#"><img src="home.png" style="width:25%;"></a>
+        <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close<i class="fa fa-remove"></i></a>
+          <a class="w3-bar-item w3-button w3-teal" href="index.html">Home</a>
+            <a class="w3-bar-item w3-b" data-toggle="modal" data-target="#myModal">ADD A QUESTION <span class="glyphicon glyphicon-plus"></span></a>
+           <a class="w3-bar-item w3-b" href="http://localhost/adminpanel/subject.php">EXPERT PANEL<span class="glyphicon"></span></a>
+            <a class="w3-bar-item w3-b"  href="studentpaper.php">CREATE A MODEL PAPER<span class="glyphicon" ></span></a>
+            <a class="w3-bar-item w3-b"  href="aboutus.html">ABOUT US<span class="glyphicon" ></span></a>
+              
+                     <!--  <div>
+
+                              <a class="w3-bar-item w3-button" onclick="myAccordion('demo')" href="javascript:void(0)">More options <i class="fa fa-caret-down"></i></a>
+                                  <div id="demo" class="w3-hide">
+                                            <a class="w3-bar-item w3-button" href="http://localhost/adminpanel/subject.php">Expert Panel</a>
+                                            <a class="w3-bar-item w3-button" href="aboutus.html">About us</a>      
+                                                            </div>
+                                                              </div> -->
+</nav>
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px;">
+
+    <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+        <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i> 
+        <span id="myIntro" class="w3-hide">Introduction</span></p>
+</div>
+
+<header class="w3-container w3-theme" style="padding:64px 32px">
+      <h1 class="w3-xxxlarge">Crowd Sourcing model for preparing large question banks.</h1>
+</header>
+
+    <div class="w3-container" style="padding:32px">
+
+        <h2>What is Crowd Soucing of Question Banks?</h2>
+
+        <p>The term "crowdsourcing" was coined in 2005 by Jeff Howe and Mark Robinson, editors at Wired, to describe how businesses were using the Internet to "outsource work to the crowd", which quickly led to the portmanteau "crowdsourcing."</p>
+
+        <ul class="w3-leftbar w3-theme-border" style="list-style:none">
+             <li>Crowdsourcing is a sourcing model in which individuals or organizations obtain goods and services, including ideas and finances, from a large, relatively open and often rapidly-evolving group of internet users; it divides work between participants to achieve a cumulative result.</li>
+              <li>Major differences between crowdsourcing and outsourcing include features such as: crowdsourcing comes from a less-specific, more public group (i.e. whereas outsourcing is commissioned from a specific, named group) and; includes a mix of bottom-up and top-down processes.</li>
+               <li>Advantages of using crowdsourcing may include improved costs, speed, quality, flexibility, scalability, or diversity.</li>
+                <li>Some forms of crowdsourcing, such as in "idea competitions" or "innovation contests" provide ways for organizations to learn beyond the "base of minds" provided by their employees (e.g. LEGO Ideas).</li>
+        </ul>
+        </div>
+    </div>
+     <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style=" background: #009688">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color: white; margin-left: 200px;">ADD A QUESTION</h4>
+          <div class="alert alert-success" style="display:none;" id="template_from_success">
+                    <strong>Success!</strong> Successfully submited!.
+                 </div>
+                 <div class="alert alert-danger" style="display:none;" id="template_from_error">
+                   <strong>Danger!</strong> Incorrect Data cannot submited!.
+                 </div>
+        </div>
+        <div>
+        <select class="selectpicker" required style="margin-right: 10px; margin-bottom: 10px; margin-left: 70px; margin-top: 20px" id="Class" >Class
+        <option value="none">Select Class</option> 
+  <!--option value="Class 10th">Class 10th</option-->
+  <option value="Class 11th">Class 11th</option>
+  <option value="Class 12th">Class 12th</option>
+</select>
+<select class="selectpicker" required style="margin-right: 10px; margin-bottom: 10px; margin-left: 40px; margin-top: 20px" id="subject">Subject
+  <option value="none">Select Subject</option> 
+  <option value="English">English</option>
+  <!--option value="Hindi">Hindi</option-->
+  <option value="Maths">Maths</option>
+  <option value="Physics">Physics</option> 
+  <option value="chemistry">chemistry</option>
+  <option value="Biology">Biology</option>  
+</select>
+<select class="selectpicker" required style="margin-right: 10px; margin-bottom: 10px; margin-left: 40px; margin-top: 20px" id="marks" >Marks
+  <option value="0">Select Marks</option> 
+  <option value="2">2</option>
+  <option value="4">4</option>
+  <option value="6">6</option>
+  <option value="8">8</option>
+</select> 
+ <textarea rows="4" cols="50" style="margin-right: 10px; margin-bottom: 10px; margin-left: 20px; margin-top: 20px" id="question" placeholder="Suggest your question"></textarea>
+ 
+ <textarea rows="4" cols="50" style="margin-right: 10px; margin-bottom: 10px; margin-left: 20px; margin-top: 20px" id="answer" placeholder="Submit your answer"></textarea>
+ <button type="button" class="btn btn-success" style="margin-right: 10px; margin-bottom: 110px; margin-left: 40px; margin-top: 10px" onclick="submit();" id="submit"><span class="glyphicon glyphicon-ok"></span> Submit</button>
+</div>
+
+        <div class="modal-footer" style=" background: #009688">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="close">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+
+    <!--footer class="w3-container w3-theme" style="padding:32px">
+          <p>Footer information goes here</p>
+    </footer-->
+         
+    </div>
+  </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
+    <script>
+      $(document).ready(function(){
+   $('#question').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+      
+
+function submit(){
+
+         var cclass = document.getElementById("Class").value;
+         var subject = document.getElementById("subject").value;
+         var marks = document.getElementById("marks").value;
+         var question = document.getElementById("question").value;
+         var answer = document.getElementById("answer").value;
+         var qlen = question.length;
+         var alen = answer.length;
+         console.log(qlen);
+         console.log(alen);
+         console.log(cclass);
+         console.log(subject);
+         console.log(marks);
+         console.log(question);
+         console.log(answer);
+
+         if(cclass=="none"||subject=="none"||marks=="0"||qlen=="0"||qlen==undefined||alen=="0"||alen==undefined){
+          var er = "yes";
+          $("#template_from_error").show();
+          setTimeout(function(){ $("#template_from_error").hide(); }, 3000);
+         }
+        if(er=="yes"){
+        return;
+        }
+        
+        var ajax_data = {cclass:cclass,subject:subject,marks:marks,question:question,answer:answer};
+         ajax_call(ajax_data);
+         
+        }
+
+function ajax_call(data){
+          console.log(data);
+            var final_result;
+            $.ajax({
+               type:"POST",
+               url:'add.php',
+               data : data,
+              async : false,
+               success: function(data){
+                  final_result= data;
+                }
+
+            });
+
+
+            console.log(final_result);
+            
+            if(final_result.status=="error")
+            {
+               $("#template_from_error").show();
+               setTimeout(function(){ $("#template_from_error").hide(); }, 3000);
+            }
+            else{
+               $("#template_from_success").show();
+               setTimeout(function(){ $("#template_from_success").hide(); }, 3000);
+               // setTimeout(function(){ location.reload();}, 1000);
+               
+
+                
+
+            }
+          }
+
+       //for side bar
+function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+}
+function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+}
+
+// Change style of top container on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+                            document.getElementById("myIntro").classList.add("w3-show-inline-block");
+                                } else {
+                                            document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+                                                    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+                                                        }
+}
+
+// Accordions
+function myAccordion(id) {
+        var x = document.getElementById(id);
+            if (x.className.indexOf("w3-show") == -1) {
+                        x.className += " w3-show";
+                                x.previousElementSibling.className += " w3-theme";
+                                    } else { 
+                                                x.className = x.className.replace("w3-show", "");
+                                                        x.previousElementSibling.className = 
+                                                                    x.previousElementSibling.className.replace(" w3-theme", "");
+                                                            }}
+    </script>
+         
+
+</html> 
